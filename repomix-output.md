@@ -203,12 +203,28 @@ Thumbs.db
   .gate b{display:block; font-size:22px; font-weight:700; font-style:italic; color:var(--green);}
   .gate span{font-family:Georgia,serif; font-size:12px; color:var(--ink);}
   /* commitments */
-  .rows{margin-top:30px;}
-  .row{display:grid; grid-template-columns:200px 1fr; gap:20px; align-items:center; padding:14px 20px; margin-bottom:10px; background:var(--tint2);}
-  .row.hl{background:var(--tint);}
-  @media(max-width:640px){ .row{grid-template-columns:1fr; gap:4px;} }
-  .row b{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--green-mid);}
-  .row p{font-family:Georgia,serif; font-size:14px;}
+  .rows{margin-top:30px; display:flex; flex-direction:column; gap:10px;}
+  .row{display:grid; grid-template-columns:200px 1fr; gap:20px; align-items:center; padding:14px 20px; background:var(--tint2); border-left:4px solid var(--green-mid); transition:transform .15s ease;}
+  @media (hover:hover) and (pointer:fine){ .row:hover{transform:translateX(3px);} }
+  @media(max-width:640px){ .row{grid-template-columns:1fr; gap:6px;} }
+  .row b{font-size:12px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; color:var(--green-mid);}
+  .row p{font-family:Georgia,serif; font-size:14.5px; line-height:1.45; color:var(--ink);}
+
+  /* Role-specific color coding */
+  .row.cmo{border-left-color:#1e3a8a; background:#f0f4fa;}
+  .row.cmo b{color:#1e3a8a;}
+
+  .row.ops{border-left-color:#0d655f; background:#eef7f6;}
+  .row.ops b{color:#0d655f;}
+
+  .row.creative{border-left-color:#1b4332; background:#edf6f1;}
+  .row.creative b{color:#1b4332;}
+
+  .row.market{border-left-color:#b45309; background:#fef8eb;}
+  .row.market b{color:#b45309;}
+
+  .row.it{border-left-color:#475569; background:#f1f5f9;}
+  .row.it b{color:#475569;}
   .decision{background:var(--ink); color:var(--white); text-align:center; font-weight:700; font-style:italic; font-size:17px; padding:16px 20px; margin-top:20px;}
   footer{position:relative; z-index:1; border-top:1.5px solid var(--ink); padding:44px 4vw 60px; max-width:1180px; margin:0 auto;}
   footer .thanks{font-family:Georgia,serif; font-style:italic; font-size:14px; color:var(--gray); max-width:640px;}
@@ -690,11 +706,11 @@ Thumbs.db
   <h2>Each Concern Becomes a Design Commitment</h2>
   <p class="sub">Centralize the infrastructure. Federate creative control.</p>
   <div class="rows">
-    <div class="row"><b>Global CMO</b><p>Tie every run to margin, market coverage, growth, quality, and risk &mdash; not just speed.</p></div>
-    <div class="row"><b>Content Ops</b><p>Standardize metadata, rules, approvals, and interfaces before scaling creative volume.</p></div>
-    <div class="row"><b>Creative + Brand</b><p>Lock logos, products, and core design intent; automate only approved adaptive zones.</p></div>
-    <div class="row hl"><b>Japan Market</b><p>Make local teams owners of locale packs, cultural rules, transcreation, and final approval.</p></div>
-    <div class="row"><b>IT / Engineering</b><p>Use thin adapters, configuration over custom code, observable jobs, tests, and full handoff.</p></div>
+    <div class="row cmo"><b>Global CMO</b><p>Tie every run to margin, market coverage, growth, quality, and risk &mdash; not just speed.</p></div>
+    <div class="row ops"><b>Content Ops</b><p>Standardize metadata, rules, approvals, and interfaces before scaling creative volume.</p></div>
+    <div class="row creative"><b>Creative + Brand</b><p>Lock logos, products, and core design intent; automate only approved adaptive zones.</p></div>
+    <div class="row market"><b>Japan Market</b><p>Make local teams owners of locale packs, cultural rules, transcreation, and final approval.</p></div>
+    <div class="row it"><b>IT / Engineering</b><p>Use thin adapters, configuration over custom code, observable jobs, tests, and full handoff.</p></div>
   </div>
   <div class="decision">Decision: approve a six-month Wave 1 with evidence-based go / no-go gates for Wave 2.</div>
 </section>
@@ -842,12 +858,28 @@ Thumbs.db
   .gate b{display:block; font-size:22px; font-weight:700; font-style:italic; color:var(--green);}
   .gate span{font-family:Georgia,serif; font-size:12px; color:var(--ink);}
   /* commitments */
-  .rows{margin-top:30px;}
-  .row{display:grid; grid-template-columns:200px 1fr; gap:20px; align-items:center; padding:14px 20px; margin-bottom:10px; background:var(--tint2);}
-  .row.hl{background:var(--tint);}
-  @media(max-width:640px){ .row{grid-template-columns:1fr; gap:4px;} }
-  .row b{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--green-mid);}
-  .row p{font-family:Georgia,serif; font-size:14px;}
+  .rows{margin-top:30px; display:flex; flex-direction:column; gap:10px;}
+  .row{display:grid; grid-template-columns:200px 1fr; gap:20px; align-items:center; padding:14px 20px; background:var(--tint2); border-left:4px solid var(--green-mid); transition:transform .15s ease;}
+  @media (hover:hover) and (pointer:fine){ .row:hover{transform:translateX(3px);} }
+  @media(max-width:640px){ .row{grid-template-columns:1fr; gap:6px;} }
+  .row b{font-size:12px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; color:var(--green-mid);}
+  .row p{font-family:Georgia,serif; font-size:14.5px; line-height:1.45; color:var(--ink);}
+
+  /* Role-specific color coding */
+  .row.cmo{border-left-color:#1e3a8a; background:#f0f4fa;}
+  .row.cmo b{color:#1e3a8a;}
+
+  .row.ops{border-left-color:#0d655f; background:#eef7f6;}
+  .row.ops b{color:#0d655f;}
+
+  .row.creative{border-left-color:#1b4332; background:#edf6f1;}
+  .row.creative b{color:#1b4332;}
+
+  .row.market{border-left-color:#b45309; background:#fef8eb;}
+  .row.market b{color:#b45309;}
+
+  .row.it{border-left-color:#475569; background:#f1f5f9;}
+  .row.it b{color:#475569;}
   .decision{background:var(--ink); color:var(--white); text-align:center; font-weight:700; font-style:italic; font-size:17px; padding:16px 20px; margin-top:20px;}
   footer{position:relative; z-index:1; border-top:1.5px solid var(--ink); padding:44px 4vw 60px; max-width:1180px; margin:0 auto;}
   footer .thanks{font-family:Georgia,serif; font-style:italic; font-size:14px; color:var(--gray); max-width:640px;}
@@ -1329,11 +1361,11 @@ Thumbs.db
   <h2>Each Concern Becomes a Design Commitment</h2>
   <p class="sub">Centralize the infrastructure. Federate creative control.</p>
   <div class="rows">
-    <div class="row"><b>Global CMO</b><p>Tie every run to margin, market coverage, growth, quality, and risk &mdash; not just speed.</p></div>
-    <div class="row"><b>Content Ops</b><p>Standardize metadata, rules, approvals, and interfaces before scaling creative volume.</p></div>
-    <div class="row"><b>Creative + Brand</b><p>Lock logos, products, and core design intent; automate only approved adaptive zones.</p></div>
-    <div class="row hl"><b>Japan Market</b><p>Make local teams owners of locale packs, cultural rules, transcreation, and final approval.</p></div>
-    <div class="row"><b>IT / Engineering</b><p>Use thin adapters, configuration over custom code, observable jobs, tests, and full handoff.</p></div>
+    <div class="row cmo"><b>Global CMO</b><p>Tie every run to margin, market coverage, growth, quality, and risk &mdash; not just speed.</p></div>
+    <div class="row ops"><b>Content Ops</b><p>Standardize metadata, rules, approvals, and interfaces before scaling creative volume.</p></div>
+    <div class="row creative"><b>Creative + Brand</b><p>Lock logos, products, and core design intent; automate only approved adaptive zones.</p></div>
+    <div class="row market"><b>Japan Market</b><p>Make local teams owners of locale packs, cultural rules, transcreation, and final approval.</p></div>
+    <div class="row it"><b>IT / Engineering</b><p>Use thin adapters, configuration over custom code, observable jobs, tests, and full handoff.</p></div>
   </div>
   <div class="decision">Decision: approve a six-month Wave 1 with evidence-based go / no-go gates for Wave 2.</div>
 </section>
