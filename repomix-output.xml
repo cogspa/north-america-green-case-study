@@ -371,7 +371,7 @@ Thumbs.db
 <section id="solution">
 <div id="workflow-app" class="workflow-root">
   <style>
-    #workflow-app{--ink:#16231d;--green:#173f32;--green2:#315c4b;--slate:#475569;--paper:#fbfbf8;--line:#b9c1bb;--soft:#eff2ee;--gold:#b97a0c;--goldbg:#fff4db;--muted:#606963;background:light-dark(#fbfbf8,#111814);color:light-dark(#16231d,#eef4ef);font-family:Arial,Helvetica,sans-serif;padding:22px 24px;border-radius:0;min-width:0}
+    #workflow-app{--ink:#16231d;--green:#173f32;--green2:#315c4b;--paper:#fbfbf8;--line:#b9c1bb;--soft:#eff2ee;--gold:#b97a0c;--goldbg:#fff4db;--muted:#606963;background:light-dark(#fbfbf8,#111814);color:light-dark(#16231d,#eef4ef);font-family:Arial,Helvetica,sans-serif;padding:22px 24px;border-radius:0;min-width:0}
     #workflow-app *{box-sizing:border-box}
     #workflow-app .eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:light-dark(#315c4b,#a7c5b6);margin-bottom:6px}
     #workflow-app h1{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:clamp(26px,3.6vw,42px);line-height:1.1;margin:0 0 10px;max-width:960px}
@@ -380,31 +380,35 @@ Thumbs.db
     #workflow-app .cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;width:100%}
     
     /* Base Step Card */
-    #workflow-app .step{position:relative;min-width:0;background:light-dark(#fbfbf8,#18211c);padding:38px 12px 12px;min-height:150px;text-align:left;color:inherit;cursor:pointer;transition:border-color .18s ease,background .18s ease,transform .18s ease,box-shadow .18s ease}
+    #workflow-app .step{position:relative;min-width:0;background:light-dark(#fbfbf8,#18211c);padding:38px 12px 12px;min-height:150px;text-align:left;color:inherit;cursor:pointer;transition:border-color .2s ease,background .2s ease,transform .2s ease,box-shadow .2s ease}
     #workflow-app .step:focus-visible{outline:3px solid light-dark(#315c4b,#93b8a5);outline-offset:3px}
-    @media (hover:hover) and (pointer:fine){#workflow-app .step:hover{transform:translateY(-2px)}}
     
-    /* Category 1: Automated (Dark Green) */
+    /* Category 1: Automated / Collaborative / Assisted (Dark Green) */
     #workflow-app .step.auto{border:1px solid light-dark(#6b8275,#41554a)}
     #workflow-app .step.auto .num{background:var(--green)}
     #workflow-app .step.auto .explore{color:light-dark(#244437,#a7c7b7)}
-    @media (hover:hover) and (pointer:fine){#workflow-app .step.auto:hover{border-color:var(--green)}}
-    #workflow-app .step.auto.active{border-color:var(--green);box-shadow:0 0 0 2px light-dark(#173f32,#9fc5b1);background:light-dark(#f4f7f4,#1d2a23)}
+    @media (hover:hover) and (pointer:fine){
+      #workflow-app .step.auto:hover{
+        border-color:var(--green);
+        transform:translateY(-3px);
+        box-shadow:0 8px 24px -2px rgba(23,63,50,0.28), 0 0 0 1.5px rgba(23,63,50,0.35);
+      }
+    }
+    #workflow-app .step.auto.active{border-color:var(--green);box-shadow:0 6px 20px -2px rgba(23,63,50,0.25), 0 0 0 2px light-dark(#173f32,#9fc5b1);background:light-dark(#f4f7f4,#1d2a23)}
 
-    /* Category 2: Collaborative / Assisted (Neutral Charcoal / Slate) */
-    #workflow-app .step.assisted{border:1px solid light-dark(#7c8a94,#48545e)}
-    #workflow-app .step.assisted .num{background:var(--slate)}
-    #workflow-app .step.assisted .explore{color:light-dark(#334155,#94a3b8)}
-    @media (hover:hover) and (pointer:fine){#workflow-app .step.assisted:hover{border-color:var(--slate)}}
-    #workflow-app .step.assisted.active{border-color:var(--slate);box-shadow:0 0 0 2px light-dark(#475569,#94a3b8);background:light-dark(#f4f6f8,#1b2229)}
-
-    /* Category 3: Human Review Gate (Amber / Gold) */
+    /* Category 2: Human Review Gate (Amber / Gold) */
     #workflow-app .step.human{border:1.5px solid var(--gold);background:light-dark(#fffcf3,#231d14)}
     #workflow-app .step.human .num{background:var(--gold)}
     #workflow-app .step.human .owner{border-color:var(--gold);color:var(--gold)}
     #workflow-app .step.human .explore{color:light-dark(#855708,#e0b666)}
-    @media (hover:hover) and (pointer:fine){#workflow-app .step.human:hover{border-color:var(--gold)}}
-    #workflow-app .step.human.active{box-shadow:0 0 0 2px var(--gold);background:light-dark(#fff9ea,#2b2418)}
+    @media (hover:hover) and (pointer:fine){
+      #workflow-app .step.human:hover{
+        border-color:var(--gold);
+        transform:translateY(-3px);
+        box-shadow:0 8px 24px -2px rgba(185,122,12,0.32), 0 0 0 1.5px rgba(185,122,12,0.45);
+      }
+    }
+    #workflow-app .step.human.active{border-color:var(--gold);box-shadow:0 6px 20px -2px rgba(185,122,12,0.3), 0 0 0 2px var(--gold);background:light-dark(#fff9ea,#2b2418)}
 
     /* Step Card Content */
     #workflow-app .num{position:absolute;left:10px;top:-13px;color:#fff;font-weight:800;font-size:15px;min-width:28px;height:28px;padding:0 8px;display:flex;align-items:center;justify-content:center}
@@ -413,12 +417,11 @@ Thumbs.db
     #workflow-app .step p{font-family:Georgia,'Times New Roman',serif;font-size:12.8px;line-height:1.38;margin:0;color:light-dark(#222f28,#dbe3df)}
     #workflow-app .explore{display:block;margin-top:10px;font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 
-    /* 3-Category Legend */
+    /* Single Status Legend */
     #workflow-app .legend{display:flex;gap:20px;flex-wrap:wrap;align-items:center;margin-top:2px;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:light-dark(#4e5852,#b1bbb5)}
     #workflow-app .key{display:inline-flex;gap:7px;align-items:center}
     #workflow-app .swatch{width:11px;height:11px;border:1px solid #55625a;background:transparent}
     #workflow-app .swatch.auto{background:var(--green);border-color:var(--green)}
-    #workflow-app .swatch.assisted{background:var(--slate);border-color:var(--slate)}
     #workflow-app .swatch.human{background:var(--gold);border-color:var(--gold)}
     
     /* Compact Drawer styling with dynamic row heights */
@@ -456,17 +459,6 @@ Thumbs.db
     /* Category Theming in Drawer */
     #workflow-app .drawer.auto{border-top:3.5px solid var(--green)}
     #workflow-app .drawer.auto .drawer-num{background:var(--green);color:#fff}
-
-    #workflow-app .drawer.assisted{border-top:3.5px solid var(--slate);border-color:light-dark(#b3bec8,#43505c)}
-    #workflow-app .drawer.assisted .drawer-num{background:var(--slate);color:#fff}
-    #workflow-app .drawer.assisted .drawer-owner{color:light-dark(#475569,#94a3b8)}
-    #workflow-app .drawer.assisted .drawer-row h3{color:light-dark(#475569,#94a3b8)}
-    #workflow-app .drawer.assisted .why{border-left-color:var(--slate)}
-    #workflow-app .drawer.assisted .analog.selected{background:var(--slate);border-color:var(--slate)}
-    #workflow-app .drawer.assisted .analog-detail{border-left-color:var(--slate)}
-    #workflow-app .drawer.assisted .case-badge{color:light-dark(#475569,#94a3b8)}
-    #workflow-app .drawer.assisted .case-link{color:light-dark(#334155,#cbd5e1)}
-    #workflow-app .drawer.assisted .io-arrow{color:var(--slate)}
 
     #workflow-app .drawer.human{background:light-dark(#fff9ea,#2b2418);border-color:light-dark(#dfcb9e,#4a3c26);border-top:3.5px solid var(--gold)}
     #workflow-app .drawer.human .drawer-head{border-bottom-color:light-dark(#dfcb9e,#4a3c26)}
@@ -506,8 +498,7 @@ Thumbs.db
     <div class="cards" id="cards" aria-label="Eight-step automation workflow"></div>
     
     <div class="legend">
-      <span class="key"><span class="swatch auto"></span> Automated step</span>
-      <span class="key"><span class="swatch assisted"></span> Collaborative / Assisted</span>
+      <span class="key"><span class="swatch auto"></span> Automated step / Collaborative / Assisted</span>
       <span class="key"><span class="swatch human"></span> Human review gate</span>
     </div>
 
@@ -568,9 +559,9 @@ Thumbs.db
       root.dataset.ready='1';
 
       const data=[
-        {n:1,category:'assisted',owner:'With Content Ops',title:'Ingest the Campaign Brief',short:'One JSON brief defines brand, markets, formats, audiences, and message — the contract for everything downstream.',purpose:'Convert a human marketing request into a structured, machine-readable production contract.',items:['Validate brand, market, audience, product, channel and due-date fields.','Normalize naming and taxonomy so downstream systems receive consistent values.','Assign a campaign/job ID and resolve the rules that apply to each market and format.','Calculate the required outputs before production begins.'],input:'Campaign brief / JSON',output:'Campaign manifest',flow:'Campaign requirements → structured job definition → downstream production rules',why:'The brief becomes executable data rather than a set of instructions that every production team has to reinterpret.',analogs:[['Coca-Cola','Adobe documents Coca-Cola using Workfront intake forms and standardized workflows to capture project information, automatically create projects, and coordinate global, operating-unit, and market execution.','https://business.adobe.com/summit/2025/sessions/cocacola-crafting-a-techaugmented-marketing-s807.html']]},
+        {n:1,category:'auto',owner:'With Content Ops',title:'Ingest the Campaign Brief',short:'One JSON brief defines brand, markets, formats, audiences, and message — the contract for everything downstream.',purpose:'Convert a human marketing request into a structured, machine-readable production contract.',items:['Validate brand, market, audience, product, channel and due-date fields.','Normalize naming and taxonomy so downstream systems receive consistent values.','Assign a campaign/job ID and resolve the rules that apply to each market and format.','Calculate the required outputs before production begins.'],input:'Campaign brief / JSON',output:'Campaign manifest',flow:'Campaign requirements → structured job definition → downstream production rules',why:'The brief becomes executable data rather than a set of instructions that every production team has to reinterpret.',analogs:[['Coca-Cola','Adobe documents Coca-Cola using Workfront intake forms and standardized workflows to capture project information, automatically create projects, and coordinate global, operating-unit, and market execution.','https://business.adobe.com/summit/2025/sessions/cocacola-crafting-a-techaugmented-marketing-s807.html']]},
         {n:2,category:'auto',owner:'With IT / Engineering',title:'Sync the Legacy DAM',short:'Read-only pull of approved assets, tagged by role and SHA-256 fingerprint. The DAM stays the system of record.',purpose:'Connect the automation layer to existing approved content without replacing the organization’s DAM.',items:['Query the DAM through APIs using campaign and product metadata.','Retrieve approved asset IDs, versions, rights and usage status.','Map legacy taxonomy into the automation workflow.','Use asset identity and version information to detect changes and avoid duplicates.'],input:'Campaign manifest',output:'Approved asset manifest',flow:'Campaign manifest → DAM API + metadata matching → approved source assets',why:'Existing approved assets are reused first, while the DAM remains authoritative and no new content silo is created.',analogs:[['Genpact','Adobe documents Genpact connecting Workfront-driven content workflows with AEM Assets so teams can work from governed, approved enterprise assets rather than recreate content in separate silos.','https://business.adobe.com/customer-success-stories/genpact.html']]},
-        {n:3,category:'assisted',owner:'With Brand Standards',title:'Resolve Missing Assets',short:'Gaps are generated with approved services from approved components — provenance flag and human-review marker on.',purpose:'Perform an asset coverage check and create or request only what the campaign is missing.',items:['Compare required campaign components with the approved asset manifest.','Reuse existing assets wherever possible.','Generate eligible missing backgrounds, crops or treatments from approved components.','Flag generated material with provenance and review metadata.','Route non-generatable gaps to the appropriate production owner.'],input:'Approved asset manifest',output:'Complete component set',flow:'Required components − available components = production gaps',why:'AI becomes a gap resolver rather than the source of truth, reducing unnecessary generation and protecting approved brand assets.',analogs:[['Nestlé','Adobe documents Nestlé using Firefly Custom Models to create commercially safe, on-brand campaign imagery from approved brand inputs, reducing the need for new production and reshoots. The public case supports governed gap-filling generation, though not the exact required-minus-existing calculation shown here.','https://business.adobe.com/customer-success-stories/nestle.html']]},
+        {n:3,category:'auto',owner:'With Brand Standards',title:'Resolve Missing Assets',short:'Gaps are generated with approved services from approved components — provenance flag and human-review marker on.',purpose:'Perform an asset coverage check and create or request only what the campaign is missing.',items:['Compare required campaign components with the approved asset manifest.','Reuse existing assets wherever possible.','Generate eligible missing backgrounds, crops or treatments from approved components.','Flag generated material with provenance and review metadata.','Route non-generatable gaps to the appropriate production owner.'],input:'Approved asset manifest',output:'Complete component set',flow:'Required components − available components = production gaps',why:'AI becomes a gap resolver rather than the source of truth, reducing unnecessary generation and protecting approved brand assets.',analogs:[['Nestlé','Adobe documents Nestlé using Firefly Custom Models to create commercially safe, on-brand campaign imagery from approved brand inputs, reducing the need for new production and reshoots. The public case supports governed gap-filling generation, though not the exact required-minus-existing calculation shown here.','https://business.adobe.com/customer-success-stories/nestle.html']]},
         {n:4,category:'auto',owner:'With Creative Teams',title:'Assemble Variants',short:'Approved components composed into every required format — 1:1, 9:16, 16:9 — per brand and SKU, from reusable profiles.',purpose:'Automatically construct production-ready channel variants from approved components and governed templates.',items:['Place product, logo, imagery, copy and legal content into reusable templates.','Apply crop, safe-zone, typography and layout rules.','Recompose rather than simply resize for each channel format.','Generate consistent families of assets from one approved concept.'],input:'Components + templates',output:'Channel variants',flow:'Approved components + layout profile → 1:1 / 9:16 / 16:9 / retail / display outputs',why:'One approved concept can become hundreds of production-ready sizes without requiring a designer to manually rebuild every file.',analogs:[['Newell Brands','Adobe documents Newell Brands using Firefly Services, Custom Models, Adobe Express, Workfront, and AEM Assets to automate high-volume content production and create channel-specific variations across its portfolio of 50+ brands.','https://business.adobe.com/blog/newell-brands-reimagines-its-content-supply-chain-with-adobe']]},
         {n:5,category:'auto',owner:'With Market Teams',title:'Localize per Market',short:'Transcreation, copy-length reflow, RTL mirroring, vertical setting, and market-correct legal footers — rules as data.',purpose:'Adapt master creative for each market without allowing every region to reinvent the campaign.',items:['Translate or transcreate copy using market-approved terminology.','Apply currency, units, pricing and market-specific product availability.','Adjust copy length, line breaking, RTL or vertical typography where required.','Insert local legal text, disclaimers and approved regional imagery.','Apply market-specific calls to action and cultural rules.'],input:'Master channel variants',output:'Market-specific variants',flow:'Master creative + market policy package → localized creative',why:'Localization becomes a governed production system rather than a manual handoff between global and regional teams.',analogs:[['Adobe','Adobe documents its own GenStudio workflow adapting master creative across 20+ countries, with LATAM localization time reduced by 75%. This is a direct example of centrally governed creative being adapted for local markets at scale.','https://business.adobe.com/customer-success-stories/customer-zero-adobe-genstudio-for-performance-marketing.html'],['Coca-Cola','Adobe describes Coca-Cola using a content-supply-chain architecture that produces on-brand localized variants while coordinating execution across markets.','https://business.adobe.com/summit/2026/sessions/velocity-at-scale-how-coca-cola-deaveraged-its-con-s915.html']]},
         {n:6,category:'auto',owner:'With Brand Standards',title:'Scrub for Spec Compliance',short:'The brand book compiled into blocking rules: clear space, color tokens, type licensing, copy limits. Auto-pass or auto-fix.',purpose:'Automatically check objective brand, legal and channel requirements before a human reviewer sees the work.',items:['Validate logo usage, clear space, colors, typography and approved asset treatments.','Check channel dimensions, safe areas, file size and copy-length limits.','Validate required disclosures, product claims and asset rights.','Auto-correct safe deterministic issues where permitted.','Produce a structured pass/fail exception report.'],input:'Localized variants',output:'Compliance report',flow:'Creative variant → rules engine → pass / auto-fix / exception',why:'The system converts the brand book from a document people must remember into policy that production can automatically enforce.',analogs:[['Lenovo','Adobe documents Lenovo loading granular brand and channel guidelines into GenStudio and evaluating generated content against those rules, providing a direct analogue for automated brand-compliance checking.','https://business.adobe.com/blog/the-latest/lenovo-talks-adobe-genstudio-for-performance-marketing']]},
@@ -647,7 +638,7 @@ Thumbs.db
         d.items.forEach(item=>{const li=document.createElement('li');li.textContent=item;ul.appendChild(li)});
         renderAnalogs(d);
 
-        drawer.classList.remove('auto','assisted','human');
+        drawer.classList.remove('auto','human');
         drawer.classList.add('open',d.category);
         cards.querySelectorAll('.step').forEach(el=>{
           const sn=Number(el.dataset.step);
@@ -660,7 +651,7 @@ Thumbs.db
 
       function closeDrawer(){
         current=null;
-        drawer.classList.remove('open','auto','assisted','human');
+        drawer.classList.remove('open','auto','human');
         cards.querySelectorAll('.step').forEach(el=>{el.classList.remove('active');el.setAttribute('aria-expanded','false')});
       }
       closeBtn.addEventListener('click',closeDrawer);
@@ -1025,7 +1016,7 @@ Thumbs.db
 <section id="solution">
 <div id="workflow-app" class="workflow-root">
   <style>
-    #workflow-app{--ink:#16231d;--green:#173f32;--green2:#315c4b;--slate:#475569;--paper:#fbfbf8;--line:#b9c1bb;--soft:#eff2ee;--gold:#b97a0c;--goldbg:#fff4db;--muted:#606963;background:light-dark(#fbfbf8,#111814);color:light-dark(#16231d,#eef4ef);font-family:Arial,Helvetica,sans-serif;padding:22px 24px;border-radius:0;min-width:0}
+    #workflow-app{--ink:#16231d;--green:#173f32;--green2:#315c4b;--paper:#fbfbf8;--line:#b9c1bb;--soft:#eff2ee;--gold:#b97a0c;--goldbg:#fff4db;--muted:#606963;background:light-dark(#fbfbf8,#111814);color:light-dark(#16231d,#eef4ef);font-family:Arial,Helvetica,sans-serif;padding:22px 24px;border-radius:0;min-width:0}
     #workflow-app *{box-sizing:border-box}
     #workflow-app .eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:light-dark(#315c4b,#a7c5b6);margin-bottom:6px}
     #workflow-app h1{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:clamp(26px,3.6vw,42px);line-height:1.1;margin:0 0 10px;max-width:960px}
@@ -1034,31 +1025,35 @@ Thumbs.db
     #workflow-app .cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;width:100%}
     
     /* Base Step Card */
-    #workflow-app .step{position:relative;min-width:0;background:light-dark(#fbfbf8,#18211c);padding:38px 12px 12px;min-height:150px;text-align:left;color:inherit;cursor:pointer;transition:border-color .18s ease,background .18s ease,transform .18s ease,box-shadow .18s ease}
+    #workflow-app .step{position:relative;min-width:0;background:light-dark(#fbfbf8,#18211c);padding:38px 12px 12px;min-height:150px;text-align:left;color:inherit;cursor:pointer;transition:border-color .2s ease,background .2s ease,transform .2s ease,box-shadow .2s ease}
     #workflow-app .step:focus-visible{outline:3px solid light-dark(#315c4b,#93b8a5);outline-offset:3px}
-    @media (hover:hover) and (pointer:fine){#workflow-app .step:hover{transform:translateY(-2px)}}
     
-    /* Category 1: Automated (Dark Green) */
+    /* Category 1: Automated / Collaborative / Assisted (Dark Green) */
     #workflow-app .step.auto{border:1px solid light-dark(#6b8275,#41554a)}
     #workflow-app .step.auto .num{background:var(--green)}
     #workflow-app .step.auto .explore{color:light-dark(#244437,#a7c7b7)}
-    @media (hover:hover) and (pointer:fine){#workflow-app .step.auto:hover{border-color:var(--green)}}
-    #workflow-app .step.auto.active{border-color:var(--green);box-shadow:0 0 0 2px light-dark(#173f32,#9fc5b1);background:light-dark(#f4f7f4,#1d2a23)}
+    @media (hover:hover) and (pointer:fine){
+      #workflow-app .step.auto:hover{
+        border-color:var(--green);
+        transform:translateY(-3px);
+        box-shadow:0 8px 24px -2px rgba(23,63,50,0.28), 0 0 0 1.5px rgba(23,63,50,0.35);
+      }
+    }
+    #workflow-app .step.auto.active{border-color:var(--green);box-shadow:0 6px 20px -2px rgba(23,63,50,0.25), 0 0 0 2px light-dark(#173f32,#9fc5b1);background:light-dark(#f4f7f4,#1d2a23)}
 
-    /* Category 2: Collaborative / Assisted (Neutral Charcoal / Slate) */
-    #workflow-app .step.assisted{border:1px solid light-dark(#7c8a94,#48545e)}
-    #workflow-app .step.assisted .num{background:var(--slate)}
-    #workflow-app .step.assisted .explore{color:light-dark(#334155,#94a3b8)}
-    @media (hover:hover) and (pointer:fine){#workflow-app .step.assisted:hover{border-color:var(--slate)}}
-    #workflow-app .step.assisted.active{border-color:var(--slate);box-shadow:0 0 0 2px light-dark(#475569,#94a3b8);background:light-dark(#f4f6f8,#1b2229)}
-
-    /* Category 3: Human Review Gate (Amber / Gold) */
+    /* Category 2: Human Review Gate (Amber / Gold) */
     #workflow-app .step.human{border:1.5px solid var(--gold);background:light-dark(#fffcf3,#231d14)}
     #workflow-app .step.human .num{background:var(--gold)}
     #workflow-app .step.human .owner{border-color:var(--gold);color:var(--gold)}
     #workflow-app .step.human .explore{color:light-dark(#855708,#e0b666)}
-    @media (hover:hover) and (pointer:fine){#workflow-app .step.human:hover{border-color:var(--gold)}}
-    #workflow-app .step.human.active{box-shadow:0 0 0 2px var(--gold);background:light-dark(#fff9ea,#2b2418)}
+    @media (hover:hover) and (pointer:fine){
+      #workflow-app .step.human:hover{
+        border-color:var(--gold);
+        transform:translateY(-3px);
+        box-shadow:0 8px 24px -2px rgba(185,122,12,0.32), 0 0 0 1.5px rgba(185,122,12,0.45);
+      }
+    }
+    #workflow-app .step.human.active{border-color:var(--gold);box-shadow:0 6px 20px -2px rgba(185,122,12,0.3), 0 0 0 2px var(--gold);background:light-dark(#fff9ea,#2b2418)}
 
     /* Step Card Content */
     #workflow-app .num{position:absolute;left:10px;top:-13px;color:#fff;font-weight:800;font-size:15px;min-width:28px;height:28px;padding:0 8px;display:flex;align-items:center;justify-content:center}
@@ -1067,12 +1062,11 @@ Thumbs.db
     #workflow-app .step p{font-family:Georgia,'Times New Roman',serif;font-size:12.8px;line-height:1.38;margin:0;color:light-dark(#222f28,#dbe3df)}
     #workflow-app .explore{display:block;margin-top:10px;font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 
-    /* 3-Category Legend */
+    /* Single Status Legend */
     #workflow-app .legend{display:flex;gap:20px;flex-wrap:wrap;align-items:center;margin-top:2px;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:light-dark(#4e5852,#b1bbb5)}
     #workflow-app .key{display:inline-flex;gap:7px;align-items:center}
     #workflow-app .swatch{width:11px;height:11px;border:1px solid #55625a;background:transparent}
     #workflow-app .swatch.auto{background:var(--green);border-color:var(--green)}
-    #workflow-app .swatch.assisted{background:var(--slate);border-color:var(--slate)}
     #workflow-app .swatch.human{background:var(--gold);border-color:var(--gold)}
     
     /* Compact Drawer styling with dynamic row heights */
@@ -1110,17 +1104,6 @@ Thumbs.db
     /* Category Theming in Drawer */
     #workflow-app .drawer.auto{border-top:3.5px solid var(--green)}
     #workflow-app .drawer.auto .drawer-num{background:var(--green);color:#fff}
-
-    #workflow-app .drawer.assisted{border-top:3.5px solid var(--slate);border-color:light-dark(#b3bec8,#43505c)}
-    #workflow-app .drawer.assisted .drawer-num{background:var(--slate);color:#fff}
-    #workflow-app .drawer.assisted .drawer-owner{color:light-dark(#475569,#94a3b8)}
-    #workflow-app .drawer.assisted .drawer-row h3{color:light-dark(#475569,#94a3b8)}
-    #workflow-app .drawer.assisted .why{border-left-color:var(--slate)}
-    #workflow-app .drawer.assisted .analog.selected{background:var(--slate);border-color:var(--slate)}
-    #workflow-app .drawer.assisted .analog-detail{border-left-color:var(--slate)}
-    #workflow-app .drawer.assisted .case-badge{color:light-dark(#475569,#94a3b8)}
-    #workflow-app .drawer.assisted .case-link{color:light-dark(#334155,#cbd5e1)}
-    #workflow-app .drawer.assisted .io-arrow{color:var(--slate)}
 
     #workflow-app .drawer.human{background:light-dark(#fff9ea,#2b2418);border-color:light-dark(#dfcb9e,#4a3c26);border-top:3.5px solid var(--gold)}
     #workflow-app .drawer.human .drawer-head{border-bottom-color:light-dark(#dfcb9e,#4a3c26)}
@@ -1160,8 +1143,7 @@ Thumbs.db
     <div class="cards" id="cards" aria-label="Eight-step automation workflow"></div>
     
     <div class="legend">
-      <span class="key"><span class="swatch auto"></span> Automated step</span>
-      <span class="key"><span class="swatch assisted"></span> Collaborative / Assisted</span>
+      <span class="key"><span class="swatch auto"></span> Automated step / Collaborative / Assisted</span>
       <span class="key"><span class="swatch human"></span> Human review gate</span>
     </div>
 
@@ -1222,9 +1204,9 @@ Thumbs.db
       root.dataset.ready='1';
 
       const data=[
-        {n:1,category:'assisted',owner:'With Content Ops',title:'Ingest the Campaign Brief',short:'One JSON brief defines brand, markets, formats, audiences, and message — the contract for everything downstream.',purpose:'Convert a human marketing request into a structured, machine-readable production contract.',items:['Validate brand, market, audience, product, channel and due-date fields.','Normalize naming and taxonomy so downstream systems receive consistent values.','Assign a campaign/job ID and resolve the rules that apply to each market and format.','Calculate the required outputs before production begins.'],input:'Campaign brief / JSON',output:'Campaign manifest',flow:'Campaign requirements → structured job definition → downstream production rules',why:'The brief becomes executable data rather than a set of instructions that every production team has to reinterpret.',analogs:[['Coca-Cola','Adobe documents Coca-Cola using Workfront intake forms and standardized workflows to capture project information, automatically create projects, and coordinate global, operating-unit, and market execution.','https://business.adobe.com/summit/2025/sessions/cocacola-crafting-a-techaugmented-marketing-s807.html']]},
+        {n:1,category:'auto',owner:'With Content Ops',title:'Ingest the Campaign Brief',short:'One JSON brief defines brand, markets, formats, audiences, and message — the contract for everything downstream.',purpose:'Convert a human marketing request into a structured, machine-readable production contract.',items:['Validate brand, market, audience, product, channel and due-date fields.','Normalize naming and taxonomy so downstream systems receive consistent values.','Assign a campaign/job ID and resolve the rules that apply to each market and format.','Calculate the required outputs before production begins.'],input:'Campaign brief / JSON',output:'Campaign manifest',flow:'Campaign requirements → structured job definition → downstream production rules',why:'The brief becomes executable data rather than a set of instructions that every production team has to reinterpret.',analogs:[['Coca-Cola','Adobe documents Coca-Cola using Workfront intake forms and standardized workflows to capture project information, automatically create projects, and coordinate global, operating-unit, and market execution.','https://business.adobe.com/summit/2025/sessions/cocacola-crafting-a-techaugmented-marketing-s807.html']]},
         {n:2,category:'auto',owner:'With IT / Engineering',title:'Sync the Legacy DAM',short:'Read-only pull of approved assets, tagged by role and SHA-256 fingerprint. The DAM stays the system of record.',purpose:'Connect the automation layer to existing approved content without replacing the organization’s DAM.',items:['Query the DAM through APIs using campaign and product metadata.','Retrieve approved asset IDs, versions, rights and usage status.','Map legacy taxonomy into the automation workflow.','Use asset identity and version information to detect changes and avoid duplicates.'],input:'Campaign manifest',output:'Approved asset manifest',flow:'Campaign manifest → DAM API + metadata matching → approved source assets',why:'Existing approved assets are reused first, while the DAM remains authoritative and no new content silo is created.',analogs:[['Genpact','Adobe documents Genpact connecting Workfront-driven content workflows with AEM Assets so teams can work from governed, approved enterprise assets rather than recreate content in separate silos.','https://business.adobe.com/customer-success-stories/genpact.html']]},
-        {n:3,category:'assisted',owner:'With Brand Standards',title:'Resolve Missing Assets',short:'Gaps are generated with approved services from approved components — provenance flag and human-review marker on.',purpose:'Perform an asset coverage check and create or request only what the campaign is missing.',items:['Compare required campaign components with the approved asset manifest.','Reuse existing assets wherever possible.','Generate eligible missing backgrounds, crops or treatments from approved components.','Flag generated material with provenance and review metadata.','Route non-generatable gaps to the appropriate production owner.'],input:'Approved asset manifest',output:'Complete component set',flow:'Required components − available components = production gaps',why:'AI becomes a gap resolver rather than the source of truth, reducing unnecessary generation and protecting approved brand assets.',analogs:[['Nestlé','Adobe documents Nestlé using Firefly Custom Models to create commercially safe, on-brand campaign imagery from approved brand inputs, reducing the need for new production and reshoots. The public case supports governed gap-filling generation, though not the exact required-minus-existing calculation shown here.','https://business.adobe.com/customer-success-stories/nestle.html']]},
+        {n:3,category:'auto',owner:'With Brand Standards',title:'Resolve Missing Assets',short:'Gaps are generated with approved services from approved components — provenance flag and human-review marker on.',purpose:'Perform an asset coverage check and create or request only what the campaign is missing.',items:['Compare required campaign components with the approved asset manifest.','Reuse existing assets wherever possible.','Generate eligible missing backgrounds, crops or treatments from approved components.','Flag generated material with provenance and review metadata.','Route non-generatable gaps to the appropriate production owner.'],input:'Approved asset manifest',output:'Complete component set',flow:'Required components − available components = production gaps',why:'AI becomes a gap resolver rather than the source of truth, reducing unnecessary generation and protecting approved brand assets.',analogs:[['Nestlé','Adobe documents Nestlé using Firefly Custom Models to create commercially safe, on-brand campaign imagery from approved brand inputs, reducing the need for new production and reshoots. The public case supports governed gap-filling generation, though not the exact required-minus-existing calculation shown here.','https://business.adobe.com/customer-success-stories/nestle.html']]},
         {n:4,category:'auto',owner:'With Creative Teams',title:'Assemble Variants',short:'Approved components composed into every required format — 1:1, 9:16, 16:9 — per brand and SKU, from reusable profiles.',purpose:'Automatically construct production-ready channel variants from approved components and governed templates.',items:['Place product, logo, imagery, copy and legal content into reusable templates.','Apply crop, safe-zone, typography and layout rules.','Recompose rather than simply resize for each channel format.','Generate consistent families of assets from one approved concept.'],input:'Components + templates',output:'Channel variants',flow:'Approved components + layout profile → 1:1 / 9:16 / 16:9 / retail / display outputs',why:'One approved concept can become hundreds of production-ready sizes without requiring a designer to manually rebuild every file.',analogs:[['Newell Brands','Adobe documents Newell Brands using Firefly Services, Custom Models, Adobe Express, Workfront, and AEM Assets to automate high-volume content production and create channel-specific variations across its portfolio of 50+ brands.','https://business.adobe.com/blog/newell-brands-reimagines-its-content-supply-chain-with-adobe']]},
         {n:5,category:'auto',owner:'With Market Teams',title:'Localize per Market',short:'Transcreation, copy-length reflow, RTL mirroring, vertical setting, and market-correct legal footers — rules as data.',purpose:'Adapt master creative for each market without allowing every region to reinvent the campaign.',items:['Translate or transcreate copy using market-approved terminology.','Apply currency, units, pricing and market-specific product availability.','Adjust copy length, line breaking, RTL or vertical typography where required.','Insert local legal text, disclaimers and approved regional imagery.','Apply market-specific calls to action and cultural rules.'],input:'Master channel variants',output:'Market-specific variants',flow:'Master creative + market policy package → localized creative',why:'Localization becomes a governed production system rather than a manual handoff between global and regional teams.',analogs:[['Adobe','Adobe documents its own GenStudio workflow adapting master creative across 20+ countries, with LATAM localization time reduced by 75%. This is a direct example of centrally governed creative being adapted for local markets at scale.','https://business.adobe.com/customer-success-stories/customer-zero-adobe-genstudio-for-performance-marketing.html'],['Coca-Cola','Adobe describes Coca-Cola using a content-supply-chain architecture that produces on-brand localized variants while coordinating execution across markets.','https://business.adobe.com/summit/2026/sessions/velocity-at-scale-how-coca-cola-deaveraged-its-con-s915.html']]},
         {n:6,category:'auto',owner:'With Brand Standards',title:'Scrub for Spec Compliance',short:'The brand book compiled into blocking rules: clear space, color tokens, type licensing, copy limits. Auto-pass or auto-fix.',purpose:'Automatically check objective brand, legal and channel requirements before a human reviewer sees the work.',items:['Validate logo usage, clear space, colors, typography and approved asset treatments.','Check channel dimensions, safe areas, file size and copy-length limits.','Validate required disclosures, product claims and asset rights.','Auto-correct safe deterministic issues where permitted.','Produce a structured pass/fail exception report.'],input:'Localized variants',output:'Compliance report',flow:'Creative variant → rules engine → pass / auto-fix / exception',why:'The system converts the brand book from a document people must remember into policy that production can automatically enforce.',analogs:[['Lenovo','Adobe documents Lenovo loading granular brand and channel guidelines into GenStudio and evaluating generated content against those rules, providing a direct analogue for automated brand-compliance checking.','https://business.adobe.com/blog/the-latest/lenovo-talks-adobe-genstudio-for-performance-marketing']]},
@@ -1301,7 +1283,7 @@ Thumbs.db
         d.items.forEach(item=>{const li=document.createElement('li');li.textContent=item;ul.appendChild(li)});
         renderAnalogs(d);
 
-        drawer.classList.remove('auto','assisted','human');
+        drawer.classList.remove('auto','human');
         drawer.classList.add('open',d.category);
         cards.querySelectorAll('.step').forEach(el=>{
           const sn=Number(el.dataset.step);
@@ -1314,7 +1296,7 @@ Thumbs.db
 
       function closeDrawer(){
         current=null;
-        drawer.classList.remove('open','auto','assisted','human');
+        drawer.classList.remove('open','auto','human');
         cards.querySelectorAll('.step').forEach(el=>{el.classList.remove('active');el.setAttribute('aria-expanded','false')});
       }
       closeBtn.addEventListener('click',closeDrawer);
