@@ -43,6 +43,36 @@ README.md
 
 # Files
 
+## File: README.md
+```markdown
+# North America Green Case Study
+
+**Scaling the Brand — From one successful Firefly pilot to a scalable content operation across 50+ brands and 20 markets.**
+
+Case study presentation and interactive web summary by Joe Micallef.
+
+## Features & Content
+- **Executive Summary & Scale Targets**: 50+ brands, 20 markets, 10x output speed.
+- **6-Month Transformation Plan**: Phased rollout across brand alignment, DAM pipeline integration, AI training, and scale.
+- **System Architecture & Solution**: Workflow orchestration with Adobe Firefly, Workfront, Experience Manager (AEM), and Custom Models.
+- **Business Value & ROI Modeling**: Projected cost reductions and asset turnaround gains.
+- **Interactive Live Prototype Link**: Connects to the Brand Scalability System prototype.
+- **Downloadable Deck**: `NAG-Case-Study.pptx` presentation deck.
+
+## Live Deployment
+Hosted on Netlify.
+```
+
+## File: .gitignore
+```
+.DS_Store
+.vscode/
+Thumbs.db
+
+# Local Netlify folder
+.netlify
+```
+
 ## File: index.html
 ```html
 <!DOCTYPE html>
@@ -375,6 +405,22 @@ README.md
     #workflow-app .case-link{display:inline-block;margin-top:5px;font-family:Arial,Helvetica,sans-serif;font-size:9.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:light-dark(#173f32,#b7d0c3);text-decoration:underline;text-underline-offset:2px}
     #workflow-app .why{border-left:3.5px solid var(--green);padding:8px 12px;background:light-dark(#edf2ee,#1f2a23);font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:13px;line-height:1.4;margin-top:2px}
     #workflow-app .mobile-hint{display:none}
+
+    /* Yellow Tint theme for Human Gate (Step 7) */
+    #workflow-app .drawer.human{background:light-dark(#fff9ea,#2b2418);border-color:light-dark(#dfcb9e,#4a3c26);border-top:3.5px solid var(--gold)}
+    #workflow-app .drawer.human .drawer-head{border-bottom-color:light-dark(#dfcb9e,#4a3c26)}
+    #workflow-app .drawer.human .drawer-num{background:var(--gold);color:#fff}
+    #workflow-app .drawer.human .drawer-owner{color:var(--gold)}
+    #workflow-app .drawer.human .drawer-row{border-bottom-color:light-dark(#eddcb6,#3f331f)}
+    #workflow-app .drawer.human .drawer-row h3{color:light-dark(#9a6709,#d8ac57)}
+    #workflow-app .drawer.human .why{border-left-color:var(--gold);background:light-dark(#fff2d2,#392d1a)}
+    #workflow-app .drawer.human .io-box{background:light-dark(#fffdf7,#241d13);border-color:light-dark(#d5c39c,#4a3c26)}
+    #workflow-app .drawer.human .io-arrow{color:var(--gold)}
+    #workflow-app .drawer.human .analog{background:light-dark(#fffdf7,#241d13);border-color:light-dark(#d5c39c,#4a3c26)}
+    #workflow-app .drawer.human .analog.selected{background:var(--gold);border-color:var(--gold);color:#fff}
+    #workflow-app .drawer.human .analog-detail{border-left-color:var(--gold);background:light-dark(#fff2d2,#392d1a)}
+    #workflow-app .drawer.human .case-badge{color:light-dark(#9a6709,#d8ac57)}
+    #workflow-app .drawer.human .case-link{color:light-dark(#7a5105,#e0b666)}
     
     @media(max-width:960px){
       #workflow-app .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -541,6 +587,11 @@ README.md
         renderAnalogs(d);
 
         drawer.classList.add('open');
+        if(d.n===7){
+          drawer.classList.add('human');
+        } else {
+          drawer.classList.remove('human');
+        }
         cards.querySelectorAll('.step').forEach(el=>{
           const sn=Number(el.dataset.step);
           el.classList.remove('active','related','dim');
@@ -554,7 +605,7 @@ README.md
 
       function closeDrawer(){
         current=null;
-        drawer.classList.remove('open');
+        drawer.classList.remove('open','human');
         cards.querySelectorAll('.step').forEach(el=>{el.classList.remove('active','related','dim');el.setAttribute('aria-expanded','false')});
       }
       closeBtn.addEventListener('click',closeDrawer);
@@ -958,6 +1009,22 @@ README.md
     #workflow-app .case-link{display:inline-block;margin-top:5px;font-family:Arial,Helvetica,sans-serif;font-size:9.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:light-dark(#173f32,#b7d0c3);text-decoration:underline;text-underline-offset:2px}
     #workflow-app .why{border-left:3.5px solid var(--green);padding:8px 12px;background:light-dark(#edf2ee,#1f2a23);font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:13px;line-height:1.4;margin-top:2px}
     #workflow-app .mobile-hint{display:none}
+
+    /* Yellow Tint theme for Human Gate (Step 7) */
+    #workflow-app .drawer.human{background:light-dark(#fff9ea,#2b2418);border-color:light-dark(#dfcb9e,#4a3c26);border-top:3.5px solid var(--gold)}
+    #workflow-app .drawer.human .drawer-head{border-bottom-color:light-dark(#dfcb9e,#4a3c26)}
+    #workflow-app .drawer.human .drawer-num{background:var(--gold);color:#fff}
+    #workflow-app .drawer.human .drawer-owner{color:var(--gold)}
+    #workflow-app .drawer.human .drawer-row{border-bottom-color:light-dark(#eddcb6,#3f331f)}
+    #workflow-app .drawer.human .drawer-row h3{color:light-dark(#9a6709,#d8ac57)}
+    #workflow-app .drawer.human .why{border-left-color:var(--gold);background:light-dark(#fff2d2,#392d1a)}
+    #workflow-app .drawer.human .io-box{background:light-dark(#fffdf7,#241d13);border-color:light-dark(#d5c39c,#4a3c26)}
+    #workflow-app .drawer.human .io-arrow{color:var(--gold)}
+    #workflow-app .drawer.human .analog{background:light-dark(#fffdf7,#241d13);border-color:light-dark(#d5c39c,#4a3c26)}
+    #workflow-app .drawer.human .analog.selected{background:var(--gold);border-color:var(--gold);color:#fff}
+    #workflow-app .drawer.human .analog-detail{border-left-color:var(--gold);background:light-dark(#fff2d2,#392d1a)}
+    #workflow-app .drawer.human .case-badge{color:light-dark(#9a6709,#d8ac57)}
+    #workflow-app .drawer.human .case-link{color:light-dark(#7a5105,#e0b666)}
     
     @media(max-width:960px){
       #workflow-app .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -1124,6 +1191,11 @@ README.md
         renderAnalogs(d);
 
         drawer.classList.add('open');
+        if(d.n===7){
+          drawer.classList.add('human');
+        } else {
+          drawer.classList.remove('human');
+        }
         cards.querySelectorAll('.step').forEach(el=>{
           const sn=Number(el.dataset.step);
           el.classList.remove('active','related','dim');
@@ -1137,7 +1209,7 @@ README.md
 
       function closeDrawer(){
         current=null;
-        drawer.classList.remove('open');
+        drawer.classList.remove('open','human');
         cards.querySelectorAll('.step').forEach(el=>{el.classList.remove('active','related','dim');el.setAttribute('aria-expanded','false')});
       }
       closeBtn.addEventListener('click',closeDrawer);
@@ -1207,34 +1279,4 @@ README.md
 
 </body>
 </html>
-```
-
-## File: README.md
-```markdown
-# North America Green Case Study
-
-**Scaling the Brand — From one successful Firefly pilot to a scalable content operation across 50+ brands and 20 markets.**
-
-Case study presentation and interactive web summary by Joe Micallef.
-
-## Features & Content
-- **Executive Summary & Scale Targets**: 50+ brands, 20 markets, 10x output speed.
-- **6-Month Transformation Plan**: Phased rollout across brand alignment, DAM pipeline integration, AI training, and scale.
-- **System Architecture & Solution**: Workflow orchestration with Adobe Firefly, Workfront, Experience Manager (AEM), and Custom Models.
-- **Business Value & ROI Modeling**: Projected cost reductions and asset turnaround gains.
-- **Interactive Live Prototype Link**: Connects to the Brand Scalability System prototype.
-- **Downloadable Deck**: `NAG-Case-Study.pptx` presentation deck.
-
-## Live Deployment
-Hosted on Netlify.
-```
-
-## File: .gitignore
-```
-.DS_Store
-.vscode/
-Thumbs.db
-
-# Local Netlify folder
-.netlify
 ```
