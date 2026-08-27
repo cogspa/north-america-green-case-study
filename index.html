@@ -108,7 +108,7 @@
   .pillars{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:34px;}
   @media(max-width:1000px){ .pillars{grid-template-columns:repeat(2,1fr);} }
   @media(max-width:600px){ .pillars{grid-template-columns:1fr;} }
-  .pillar{border-top:5px solid var(--green); padding:18px 16px;}
+  .pillar{border-top:5px solid var(--green); padding:18px 16px; display:flex; flex-direction:column;}
   .pillar:nth-child(odd){background:var(--tint2);}
   .pillar:nth-child(even){background:var(--tint);}
   .pillar .num{width:30px; height:30px; background:var(--green); color:var(--white); font-weight:700; font-style:italic; display:flex; align-items:center; justify-content:center; margin-bottom:10px;}
@@ -116,6 +116,8 @@
   .pillar .ask{font-family:Georgia,serif; font-size:12px; font-style:italic; color:var(--green-mid); margin-bottom:10px;}
   .pillar li{list-style:none; font-family:Georgia,serif; font-size:12.5px; padding:3px 0 3px 13px; position:relative;}
   .pillar li::before{content:''; position:absolute; left:0; top:10px; width:6px; height:6px; background:var(--green);}
+  .pillar .pillar-val{margin-top:auto; padding-top:14px; font-size:10.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--gray); border-top:1px solid var(--hairline);}
+  .pillar .pillar-val span{color:var(--green); font-weight:800;}
   /* ROI Equation */
   .eq{background:var(--green); color:var(--white); padding:20px 24px; margin-top:26px;}
   .eq .ey{font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#9FBFA9; margin-bottom:10px; font-weight:700;}
@@ -952,18 +954,58 @@
 <!-- ROI -->
 <section id="roi">
   <p class="eyebrow">Value &amp; ROI Proposal</p>
-  <h2>Board-Level Metrics Beyond Productivity</h2>
-  <p class="serif" style="font-style:italic; font-size:15px; max-width:900px; margin-top:16px;">Point of view: productivity is the entry ticket, not the ROI story. The pilot's 60% brief-to-post reduction proves the tooling works &mdash; board-level return is measured in revenue velocity, risk avoided, unit economics, and the organization's capacity to run it without us.</p>
-  <p style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--gray); margin-top:14px;">&#9632;&nbsp; Proven in pilot: 60% brief-to-post reduction &middot; productivity is table stakes &mdash; the four pillars below are the board story</p>
+  <h2>How We Prove ROI with the Automated Ad System</h2>
+  <p class="serif" style="font-style:italic; font-size:15px; max-width:900px; margin-top:16px;">The pilot’s 60% brief-to-post reduction proves the tooling works &mdash; but how do we prove ROI? The business case for scaling the Automated Ad System must show that it gets campaigns to market sooner, reduces risk, lowers the cost of scale, and can be operated by the organization without proportional engineering support.</p>
+  <p style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--gray); margin-top:14px;">&#9632;&nbsp; Proven in pilot: 60% brief-to-post reduction &middot; productivity proves the tooling works &mdash; these four business outcomes prove the ROI</p>
   <div class="pillars">
-    <div class="pillar"><div class="num">1</div><h4>Revenue Velocity</h4><p class="ask">The board asks: "Are we faster to market?"</p>
-      <ul><li>Campaign cycle time, brief to live</li><li>Time to enter a new market or launch a brand</li><li>In-market days gained per campaign</li><li>Revenue attributed to earlier launches</li></ul></div>
-    <div class="pillar"><div class="num">2</div><h4>Brand Integrity &amp; Risk</h4><p class="ask">The board asks: "Are we protected as we scale?"</p>
-      <ul><li>First-pass compliance rate per market</li><li>Brand and legal violations shipped (target: zero)</li><li>Percent of assets with full provenance lineage</li><li>Audit readiness: time to trace any variant</li></ul></div>
-    <div class="pillar"><div class="num">3</div><h4>Scale Economics</h4><p class="ask">The board asks: "What does the next brand cost?"</p>
-      <ul><li>Cost per localized, approved variant</li><li>Marginal cost of adding a brand or market</li><li>Variant capacity per creative team</li><li>Content reuse rate from the DAM</li></ul></div>
-    <div class="pillar"><div class="num">4</div><h4>Adoption &amp; Capability</h4><p class="ask">The board asks: "Does the organization own it?"</p>
-      <ul><li>Active brands and markets on the platform</li><li>First-pass approval rate by reviewers</li><li>Percent of teams self-serving after handoff</li><li>Trained champions per market</li></ul></div>
+    <div class="pillar">
+      <div class="num">1</div>
+      <h4>Revenue Velocity</h4>
+      <p class="ask">The board asks: &ldquo;Are we getting campaigns to market faster and capturing value sooner?&rdquo;</p>
+      <ul>
+        <li>Campaign cycle time: brief to live</li>
+        <li>Time to enter a new market or launch a brand</li>
+        <li>In-market days gained per campaign</li>
+        <li>Revenue attributed to earlier launches</li>
+      </ul>
+      <div class="pillar-val">Value: <span>Revenue sooner</span></div>
+    </div>
+    <div class="pillar">
+      <div class="num">2</div>
+      <h4>Brand Integrity &amp; Risk</h4>
+      <p class="ask">The board asks: &ldquo;Are we maintaining brand and compliance standards as production scales?&rdquo;</p>
+      <ul>
+        <li>First-pass compliance rate by market</li>
+        <li>Brand or legal violations shipped to market (target: zero)</li>
+        <li>Percent of assets with complete provenance / approval lineage</li>
+        <li>Audit readiness: time required to trace an asset or variant</li>
+      </ul>
+      <div class="pillar-val">Value: <span>Risk avoided</span></div>
+    </div>
+    <div class="pillar">
+      <div class="num">3</div>
+      <h4>Economics of Scale</h4>
+      <p class="ask">The board asks: &ldquo;Does the cost per approved asset decrease as brands and markets increase?&rdquo;</p>
+      <ul>
+        <li>Cost per localized, approved variant</li>
+        <li>Marginal cost of adding a brand or market</li>
+        <li>Variant capacity per creative team</li>
+        <li>Content reuse rate from the DAM</li>
+      </ul>
+      <div class="pillar-val">Value: <span>Lower unit cost</span></div>
+    </div>
+    <div class="pillar">
+      <div class="num">4</div>
+      <h4>Adoption &amp; Operational Capability</h4>
+      <p class="ask">The board asks: &ldquo;Can teams operate and expand the platform without proportional engineering support?&rdquo;</p>
+      <ul>
+        <li>Active brands and markets using the platform</li>
+        <li>First-pass approval rate by reviewers</li>
+        <li>Percent of teams self-serving after handoff</li>
+        <li>Trained champions per market</li>
+      </ul>
+      <div class="pillar-val">Value: <span>Lower support dependency</span></div>
+    </div>
   </div>
   <div class="eq">
     <p class="ey">Transformation ROI &middot; Reported Quarterly, Per Wave &middot; Compounding as Each Wave Onboards</p>
